@@ -1,0 +1,170 @@
+/* Override global settings */
+html body {
+    /* Main background image, can be changed to any URL */
+    --ic-brand-watermark: url(https://images.unsplash.com/photo-1659469377768-4f42f2f091c5?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    /* Great background images:
+        default blue dots: https://images6.alphacoders.com/133/1333587.jpg
+        dark purple lines: https://images.unsplash.com/photo-1659469377768-4f42f2f091c5?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        dark green lines: https://images.unsplash.com/photo-1710438399422-2fca27686bcd?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGFic3RyYWN0fGVufDB8fDB8fHww
+        light blue and pink: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        dark blue waves: https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    */
+
+    /* Override BC dark mode hex values to rgba values to allow transparency */
+    --bcbackground-0: rgba(0, 0, 0, 0.1);
+    --bcbackground-1: rgba(0, 0, 0, 0.25);
+    --bcbackground-2: rgba(0, 0, 0, 0.5);
+
+    /* Override BC styles to add transparency */
+    --bcborders: rgba(0, 0, 0, 0);
+    --bcsidebar: rgba(0, 0, 0, 0);
+
+    /* Override BC text colors to fix readability */
+    --bctext-0: rgba(255, 255, 255, 1);
+    --bctext-1: rgba(225, 225, 225, 1);
+    --bctext-2: rgba(200, 200, 200, 1);
+
+    /* Custom BC dark text colors, used in a few cases where the default BC text colors are too light */
+    --bctextdark-0: rgba(0, 0, 0, 1);
+    --bctextdark-1: rgba(25, 25, 25, 1);
+    --bctextdark-2: rgba(50, 50, 50, 1);
+}
+
+
+
+/* Hide scrollbars for webkit browsers */
+::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbars for Firefox */
+html {
+    scrollbar-width: none;
+}
+
+
+
+/* Apply background image with scaling */
+.ic-app {
+    /* Stretch container to fill space */
+    height: 100% !important;
+    width: 100% !important;
+
+    /* Set background image */
+    background-image: var(--ic-brand-watermark) !important;
+
+    /* Stretch image vertically to fill container */
+    background-size: cover !important;
+    /* Center image horizontally */
+    background-position: center center !important;
+    /* Do not repeat image (tiling) */
+    background-repeat: no-repeat !important;
+}
+
+
+
+/* Completely removed elements:
+    #ajas-search-widget: removed because BC already adds a search bar, so this was redundant
+*/
+#ajas-search-widget {
+    display: none !important;
+}
+
+
+
+/* Apply transparency to all elements by default */
+/* Excluded elements:
+    .ic-DashboardCard__header_hero: Fixes completely transparent class cards
+*/
+.ic-app *:not(.ic-DashboardCard__header_hero) {
+    /* Transparent background */
+    background: rgba(0, 0, 0, 0) !important;
+
+    /* Remove background image */
+    background-image: none !important;
+}
+
+/* Dark colored elements:
+    .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active svg: Fixes active menu item color
+*/
+.ic-app-header__menu-list-item.ic-app-header__menu-list-item--active svg {
+    fill: var(--bctextdark-0) !important;
+    color: var(--bctextdark-0) !important;
+}
+/* Light colored elements:
+    .css-8bodfv-text: Text under each course in courses sidebar menu (and other places)
+*/
+.css-8bodfv-text {
+    fill: var(--bctext-0) !important;
+    color: var(--bctext-0) !important;
+}
+
+
+
+/* Apply blur to elements (taxing):
+    .ic-app-header: Left side bar
+    .ic-Dashboard-header__layout: Dashboard header
+    .calendar_header: Calendar header
+    .inline-calendar-event-titles: Main calendar
+    .fc-day-grid-event: Calendar events - here because we already blur the main calendar
+    .header-bar: Header bars on most pages (courses)
+    .content--hasMarginTop: alternate .header-bar
+    #courseMenuToggle: Course navigation sidebar toggle button
+*/
+.ic-app-header, .ic-Dashboard-header__layout, .calendar_header, .inline-calendar-event-titles, .fc-day-grid-event,
+.header-bar, .content--hasMarginTop, .ic-Table, #courseMenuToggle {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+}
+/* Stronger blur for elements with text/on top of other elements (VERY TAXING):
+    #content > div > div:not(#DashboardCard_Container, #context_modules_sortable_container): Most text content in main column
+        removed #DashboardCard_Container because it added an additional blur behind already blurred dashboard cards
+        removed #context_modules_sortable_container because it added an additional blur behind already blurred course modules
+    .bettercanvas-todosidebar: Dashboard right sidebar
+    .ic-DashboardCard: Dashboard class cards
+    #right-side: Dashboard right sidebar
+    .transition--slide-left-entered: Pop-out left menu (courses popout, etc)
+    #assignment_show: Assignment details
+    .show-content, .user_content: Content on most pages (courses)
+    .ic-sticky-frame: Course navigation sidebar
+    .item-group-condensed, .context_module: Course module items
+    .ic-app-crumbs: Course navigation breadcrumbs
+    .event-details: Calendar event details
+*/
+#content > div > div:not(#DashboardCard_Container, #context_modules_sortable_container),
+.ic-DashboardCard, .bettercanvas-todosidebar, #right-side, .transition--slide-left-entered, #assignment_show,
+.ic-sticky-frame, .item-group-condensed, .ic-app-crumbs, .event-details {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+/* Add frosted glass boarder to elements */
+.ic-Dashboard-header__layout, .calendar_header, .inline-calendar-event-titles,
+.header-bar, .content--hasMarginTop, .ic-Table, #courseMenuToggle,
+
+#content > div > div:not(#DashboardCard_Container, #context_modules_sortable_container),
+.ic-DashboardCard, .bettercanvas-todosidebar, #right-side, .transition--slide-left-entered, #assignment_show,
+.ic-sticky-frame, .item-group-condensed, .ic-app-crumbs, .event-details {
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+/* Add rounded corners to elements */
+.ic-Dashboard-header__layout, .calendar_header, .inline-calendar-event-titles, .fc-day-grid-event,
+.header-bar, .content--hasMarginTop, #courseMenuToggle,
+
+#content > div > div:not(#DashboardCard_Container, #context_modules_sortable_container),
+.ic-DashboardCard, .bettercanvas-todosidebar, #right-side, #assignment_show,
+.ic-sticky-frame, .item-group-condensed, .ic-app-crumbs, .event-details {
+    border-radius: 12px !important;
+}
+/* Add super rounded corners to elements:
+    .transition--slide-left-entered: Pop-out left menu (courses popout, etc)
+    .ic-Table: Table elements on most pages (courses)
+*/
+.transition--slide-left-entered, .ic-Table {
+    border-radius: 24px !important;
+}
+/* Remove effects from elements - to allow blur:
+    #right-side-wrapper: Dashboard right BC sidebar
+*/
+#right-side-wrapper {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
