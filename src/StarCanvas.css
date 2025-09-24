@@ -1,29 +1,11 @@
-/* Override global settings */
-html body {
-    /* Main background image, can be changed to any URL */
-    --ic-brand-watermark: url("file:///mnt/share/documents/themes/Wallpapers/Yellow-Red-Waves.jpg");
+/***Global Overrides***/
 
-    /* Override BC dark mode hex values to rgba values to allow transparency */
-    --bcbackground-0: rgba(0, 0, 0, 0.1);
-    --bcbackground-1: rgba(0, 0, 0, 0.25);
-    --bcbackground-2: rgba(0, 0, 0, 0.5);
 
-    /* Override BC styles to add transparency */
-    --bcborders: rgba(0, 0, 0, 0);
-    --bcsidebar: rgba(0, 0, 0, 0);
 
-    /* Override BC text colors to fix readability */
-    --bctext-0: rgba(255, 255, 255, 1);
-    --bctext-1: rgba(225, 225, 225, 1);
-    --bctext-2: rgba(200, 200, 200, 1);
-
-    /* Custom BC dark text colors, used in a few cases where the default BC text colors are too light */
-    --bctextdark-0: rgba(0, 0, 0, 1);
-    --bctextdark-1: rgba(25, 25, 25, 1);
-    --bctextdark-2: rgba(50, 50, 50, 1);
+/* Set font family for all elements */
+* {
+    font-family: "Karla", sans-serif !important;
 }
-
-
 
 /* Hide scrollbars for webkit browsers */
 ::-webkit-scrollbar {
@@ -34,125 +16,134 @@ html {
     scrollbar-width: none;
 }
 
+/* Override canvas global vars & styles */
+:root {
+    --ic-brand-primary-darkened-5: rgba(5, 5, 5, 1) !important; /*#0A5697;*/
+    --ic-brand-primary-darkened-10: rgba(10, 10, 10, 1) !important; /*#09518F;*/
+    --ic-brand-primary-darkened-15: rgba(15, 15, 15, 1) !important; /*#094D87;*/
+    --ic-brand-primary-lightened-5: rgba(250, 250, 250, 1) !important; /*#1662A2;*/
+    --ic-brand-primary-lightened-10: rgba(245, 245, 245, 1) !important; /*#226AA7;*/
+    --ic-brand-primary-lightened-15: rgba(240, 240, 240, 1) !important; /*#2E72AC;*/
+    --ic-brand-button--primary-bgd-darkened-5: rgba(5, 5, 5, 0.1) !important; /*#0A5697;*/
+    --ic-brand-button--primary-bgd-darkened-15: rgba(15, 15, 15, 0.1) !important; /*#094D87;*/
+    --ic-brand-button--secondary-bgd-darkened-5: #26333D;
+    --ic-brand-button--secondary-bgd-darkened-15: #222E37;
+    --ic-brand-font-color-dark-lightened-15: #47535C;
+    --ic-brand-font-color-dark-lightened-28: #636D75;
+    --ic-link-color-darkened-10: #09487E;
+    --ic-link-color-lightened-10: #216197;
+    --ic-brand-primary: #0A5A9E;
+    --ic-brand-font-color-dark: #273540;
+    --ic-link-color: #09508C;
+    --ic-brand-button--primary-bgd: var(--ic-brand-primary);
+    --ic-brand-button--primary-text: #ffffff;
+    --ic-brand-button--secondary-bgd: #273540;
+    --ic-brand-button--secondary-text: #ffffff;
+    --ic-brand-global-nav-bgd: rgba(0, 0, 0, 0) !important; /*#334451;*/
+    --ic-brand-global-nav-ic-icon-svg-fill: #ffffff;
+    --ic-brand-global-nav-ic-icon-svg-fill--active: var(--ic-brand-primary);
+    --ic-brand-global-nav-menu-item__text-color: #ffffff;
+    --ic-brand-global-nav-menu-item__text-color--active: var(--ic-link-color);
+    --ic-brand-global-nav-avatar-border: #ffffff;
+    --ic-brand-global-nav-menu-item__badge-bgd: #ffffff;
+    --ic-brand-global-nav-menu-item__badge-bgd--active: var(--ic-brand-primary);
+    --ic-brand-global-nav-menu-item__badge-text: #000000;
+    --ic-brand-global-nav-menu-item__badge-text--active: #ffffff;
+    --ic-brand-global-nav-logo-bgd: #334451;
+    --ic-brand-header-image: url('/dist/images/canvas_logomark_only@2x-e197434829.png');
+    --ic-brand-mobile-global-nav-logo: url('/dist/images/mobile-global-nav-logo-aff8453309.svg');
+    --ic-brand-watermark: url(https://raw.githubusercontent.com/wdc756/StarCanvas/refs/heads/main/images/Yellow-Red-Waves.jpg) !important; /* */
+    --ic-brand-watermark-opacity: 1.0;
+    --ic-brand-favicon: url('/dist/images/favicon-e10d657a73.ico');
+    --ic-brand-apple-touch-icon: url('/dist/images/apple-touch-icon-585e5d997d.png');
+    --ic-brand-msapplication-tile-color: var(--ic-brand-primary);
+    --ic-brand-msapplication-tile-square: url('/dist/images/windows-tile-eda8889e7b.png');
+    --ic-brand-msapplication-tile-wide: url('/dist/images/windows-tile-wide-44d3cc1060.png');
+    --ic-brand-right-sidebar-logo: ;
+    --ic-brand-Login-body-bgd-color: #334451;
+    --ic-brand-Login-body-bgd-image: ;
+    --ic-brand-Login-body-bgd-shadow-color: #273540;
+    --ic-brand-Login-logo: url('/dist/images/login/canvas-logo-5617606953.svg');
+    --ic-brand-Login-Content-bgd-color: none;
+    --ic-brand-Login-Content-border-color: none;
+    --ic-brand-Login-Content-inner-bgd: none;
+    --ic-brand-Login-Content-inner-border: none;
+    --ic-brand-Login-Content-inner-body-bgd: none;
+    --ic-brand-Login-Content-inner-body-border: none;
+    --ic-brand-Login-Content-label-text-color: #ffffff;
+    --ic-brand-Login-Content-password-text-color: #ffffff;
+    --ic-brand-Login-footer-link-color: #ffffff;
+    --ic-brand-Login-footer-link-color-hover: #ffffff;
+    --ic-brand-Login-instructure-logo: #ffffff;
+}
 
 
-/* Apply background image with scaling */
-.ic-app {
-    /* Stretch container to fill space */
-    height: 100% !important;
-    width: 100% !important;
 
-    /* Set background image */
+/***Sizing & Positioning Fixes***/
+
+
+
+/* Make canvas application fill entire screen */
+div#wrapper.ic-Layout-wrapper {
+    min-height: 90% !important;
+    max-height: 100% !important;
+    min-width: 90% !important;
+    max-width: 100% !important;
+}
+
+/* Allow Calendar to grow vertically */
+#calendar-app > div.calendar.fc.fc-unthemed.fc-ltr > div > div > table > tbody > tr > td > div {
+    height: auto !important;
+}
+
+/* Fix odd margins & padding on dashboard card container */
+div.ic-DashboardCard__box__container {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    /* This is for the dashboard cards, so they display centered */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* Fix dashboard card margins to fill space more reasonably */
+div.ic-DashboardCard {
+    flex: 1 1 calc((100% - 60px)/3) !important;
+    margin: 0 !important;
+}
+
+/* Fix dashboard card hero items sizing */
+div.ic-DashboardCard__header_hero {
+    height: 175px !important;
+}
+
+/* Fix dashboard card action items margin */
+.ic-DashboardCard__action-container {
+    margin-top: 25px !important;
+}
+
+
+
+/*** Backgrounds ***/
+
+
+
+/* Disable default background image display location */
+div.ic-Layout-watermark {
+    background: rgba(0, 0, 0, 0) !important;
+}
+/* Add background image to full screen (root canvas div) */
+div#application.ic-app {
     background-image: var(--ic-brand-watermark) !important;
 
-    /* Stretch image vertically to fill container */
+    /* Scale image so it covers entire viewport (no letterboxing) */
     background-size: cover !important;
-    /* Center image horizontally */
+    /* Center so cropping is even */
     background-position: center center !important;
-    /* Do not repeat image (tiling) */
+    /* No repeat */
     background-repeat: no-repeat !important;
-}
-
-
-
-/* Completely removed elements:
-    #ajas-search-widget: removed because BC already adds a search bar, so this was redundant
-    #header.ic-app-header.no-print: removed because BC made a new side bar
-*/
-#ajas-search-widget, #header.ic-app-header.no-print {
-    display: none !important;
-}
-
-
-
-/* Apply transparency to all elements by default
-    not(.ic-DashboardCard__header_hero): because the color cards are nice
-*/
-#application *:not(.ic-DashboardCard__header_hero) {
-    /* Transparent background */
-    background: rgba(0, 0, 0, 0) !important;
-
-    /* Remove background image */
-    background-image: none !important;
-}
-/* Dark colored elements:
-
-*/
-{
-    fill: var(--bctextdark-0) !important;
-    color: var(--bctextdark-0) !important;
-}
-/* Light colored elements:
-    .css-8bodfv-text: Text under each course in courses sidebar menu (and other places)
-*/
-.css-8bodfv-text {
-    fill: var(--bctext-0) !important;
-    color: var(--bctext-0) !important;
-}
-
-
-
-/* Remove effects from elements - to allow blur:
-
-*/
-{
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-
-
-/* Apply blur to elements (taxing):
-    #right-side: Most right sidebar elements - note this groups all items in the right sidebar
-    .fc-day-grid-event: Calendar events - here because we already blur the main calendar background
-*/
-#right-side, .fc-day-grid-event {
-    background: rgba(0, 0, 0, 0.1) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-}
-/* Stronger blur for elements with text/on top of other elements (VERY TAXING):
-    #content > div: Applies blur to most elements
-        not(#dashboard.ic-dashboard-app): Excludes dashboard area so cards aren't double blurred
-        not(.ic-Action-header: Excludes): headers that don't do anything? - courses page
-        not(#calendar-drag-and-drop-container): Another header that doesn't need to be seen
-        table: Include all tables
-    .transition--slide-left-entered: Left slide-in menu (courses popout, etc)
-    .ic-DashboardCard__box__container > div: Dashboard class cards
-    .event-details: Menu popup/context windows
-    #sticky-container: Course navigation sidebar
-    .ic-app-crumbs: Course header breadcrumbs
-    .icon-hamburger: Course navigation sidebar toggle button
-*/
-#content > div:not(#dashboard.ic-dashboard-app, .ic-Action-header, #calendar-drag-and-drop-container), #content > table,
-.ic-DashboardCard__box__container > div, .transition--slide-left-entered, .event-details, #sticky-container,
-.ic-app-crumbs, .icon-hamburger {
-    background: rgba(0, 0, 0, 0.25) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-}
-/* Add frosted glass boarder to elements */
-#content > div:not(#dashboard.ic-dashboard-app, .ic-Action-header, #calendar-drag-and-drop-container), #content > table,
-.ic-DashboardCard__box__container > div, .transition--slide-left-entered, .event-details, #sticky-container,
-.ic-app-crumbs, .icon-hamburger,
-
-#right-side {
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-/* Add rounded corners to elements */
-.event-details, #sticky-container, .ic-app-crumbs,
-
-.fc-day-grid-event {
-    border-radius: 12px !important;
-}
-/* Add super rounded corners to elements */
-#content > div:not(#dashboard.ic-dashboard-app, .ic-Action-header, #calendar-drag-and-drop-container), #content > table,
-.ic-DashboardCard__box__container > div, .transition--slide-left-entered,
-
-#right-side {
-    border-radius: 24px !important;
-}
-/* Add tiny rounded corners to elements */
-.icon-hamburger {
-    border-radius: 4px !important;
+    /* Keep fixed during scroll */
+    background-attachment: fixed !important;
 }
